@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 // CORS setup if needed
 app.get('/', (req, res) => {
-    res.send({ name: "Rushikesh Bhomale", code: 'fw25_348', app: 'Code Converter' })
+    res.send({ name: "Rushikesh Bhomale", code: 'fw25_348', app: 'Code Converter App' })
 })
 app.use('/api/codeConversion', codeConversionRoutes);
 app.use('/api/codeDebugging', codeDebuggingRoutes);
