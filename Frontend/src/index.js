@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
         theme: 'vs-dark',
         readOnly: true, // Make the output editor read-only
       });
+
+
+
+
   
       const targetLanguage = document.getElementById('targetLanguage');
       const convertButton = document.getElementById('convertButton');
@@ -25,10 +29,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const loader = document.getElementById('loader');
         const content = document.getElementById('content');
+        const copybtn=document.getElementById("copy");
 
         loader.style.display = 'none';
         content.classList.remove('hidden');
     // Show loader
+
+    copybtn.addEventListener("click",()=>{
+    
+        const data = outputEditor.getValue();
+        console.log(data);
+        copyToClipboard(data);
+    
+        // Provide visual feedback (optional)
+        const feedbackElement = document.getElementById('copyFeedback');
+        feedbackElement.style.display = 'block';
+        setTimeout(function() {
+            feedbackElement.style.display = 'none';
+        }, 2500);
+    })
     
 
       const baseUrl = `https://zany-shirt-elk.cyclic.app`
@@ -125,25 +144,27 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
-  const loader = document.getElementById('loader');
-  const content = document.getElementById('content');
-  function showloader(){
-        // Show loader
-        loader.style.display = 'block';
-  }
 
-  function removeloader(){
-        // remove loder
-        loader.style.display = 'none';
-        content.classList.remove('hidden');
-  }
+  function copyToClipboard(text) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'absolute';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    const selected =
+        document.getSelection().rangeCount > 0 ? document.getSelection().getRangeAt(0) : false;
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    if (selected) {
+        document.getSelection().removeAllRanges();
+        document.getSelection().addRange(selected);
+    }
+}
   
   
-//   let n = 5;
+
+
   
-//   function fact(n) {
-//     if (n == 0) return 1;
-//     return n * fact(n - 1);
-//   }
   
-//   fact(n)
