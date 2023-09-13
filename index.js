@@ -3,13 +3,13 @@ const app = express();
 require('dotenv').config()
 const CORS = require('cors');
 
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 
 const codeConversionRoutes = require('./Backend/Routes/codeConversion');
 const codeDebuggingRoutes = require('./Backend/Routes/codeDebugger');
 const codeQualityCheckRoutes = require('./Backend/Routes/codeQualityCheck');
 app.use(CORS())
-app.use(bodyParser.json());
+app.use(express.json());
 
 // CORS setup if needed
 app.get('/', (req, res) => {
