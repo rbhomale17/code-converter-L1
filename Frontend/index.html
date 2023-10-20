@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <title>Code Converter App</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.21.2/min/vs/loader.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      /* height: 100vh; */
+    }
+
+    .container {
+      margin-top: 20px;
+      width: 900px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      /* text-align: center; */
+      max-width: 1000px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    select,
+    button {
+      padding: 10px;
+      font-size: 16px;
+      background-color: #c1f1e1;
+      margin: 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    select:hover,
+    button:hover {
+      background-color: pink;
+    }
+
+    #main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #editor,
+    #outputEditor {
+      width: 95%;
+      height: 300px;
+      /* border: 1px solid #ccc; */
+      border-radius: 5px;
+      padding: 10px;
+      font-family: Consolas, monospace;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        width: 90%;
+        max-width: none;
+      }
+
+      #editor,
+      #outputEditor {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Code Converter By Rushikesh Bhomale</h1>
+    <div id="main">
+      <select id="targetLanguage">
+        <option value="Python">Python</option>
+        <option value="Java">Java</option>
+        <option value="C">C</option>
+        <option value="C++">C++</option>
+        <option value="PHP">PHP</option>
+        <option value="TypeScript">TypeScript</option>
+        <option value="Django">Django</option>
+        <option value="Go">Go</option>
+        <option value="Swift">Swift</option>
+        <option value="Ruby">Ruby</option>
+        <!-- <option value="JavaScript">JavaScript</option> -->
+        <!-- Add more target languages -->
+      </select>
+      <button id="convertButton">Convert</button>
+      <button id="degubButton">Debug</button>
+      <button id="qualityCheckButton">Quality Check</button>
+    </div>
+    <h1>Write Your Code Here in JavaScript Only</h1>
+    <div id="editor" style="height: 300px;"></div>
+    <!-- <br> -->
+    <h1>Get Converted / Output Code Here</h1>
+    <div id="outputEditor" style="height: 300px;">
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>
+
+
+<!-- {let n = 5;
+
+function fact(n) {
+if (n == 0) return 1;
+return n * fact(n - 1);
+}
+
+fact(n)
+
+function fib(n){
+if(n==1 || n==0) return n;
+return fib(n-1)+fib(n-2);
+}
+
+fib(n)} -->
